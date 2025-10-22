@@ -59,7 +59,7 @@ jobs:
 
 
        - name: Run Tests
-         run: dotnet test --no-build --logger "trx;LogFileName=test_results.trx"
+         run: dotnet test --configuration Release --logger "trx;LogFileName=test_results.trx"
 
 
        - name: Upload Test Results
