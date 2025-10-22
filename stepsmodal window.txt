@@ -1,0 +1,101 @@
+[When("User selects the {string} button")]
+public void WhenUserSelectsTheButton(string p0)
+{
+    throw new PendingStepException();
+}
+
+[Then("a new tab should open with message {string}")]
+public void ThenANewTabShouldOpenWithMessage(string p0)
+{
+    throw new PendingStepException();
+}
+
+[When("I click on the {string} button")]
+public void WhenIClickOnTheButton(string p0)
+{
+    throw new PendingStepException();
+}
+
+[Then("a new window should open with message {string}")]
+public void ThenANewWindowShouldOpenWithMessage(string p0)
+{
+    throw new PendingStepException();
+}
+
+[Then("a message window should open with some text")]
+public void ThenAMessageWindowShouldOpenWithSomeText()
+{
+    throw new PendingStepException();
+}
+
+[When("User select the Click me button based on text {string}")]
+public void WhenUserSelectTheClickMeButtonBasedOnText(string alertButton)
+{
+    throw new PendingStepException();
+}
+
+[Then("User should see the text {string} in popup window")]
+public void ThenUserShouldSeeTheTextInPopupWindow(string p0)
+{
+    throw new PendingStepException();
+}
+
+[Then("I verify text in frame is {string}")]
+public void ThenIVerifyTextInFrameIs(string p0)
+{
+    throw new PendingStepException();
+}
+
+[Then("I verify text in the frame is {string}")]
+public void ThenIVerifyTextInTheFrameIs(string p0)
+{
+    throw new PendingStepException();
+}
+
+[When("I switch to the parent frame")]
+public void WhenISwitchToTheParentFrame()
+{
+    throw new PendingStepException();
+}
+
+[Then("I should see {string} text")]
+public void ThenIShouldSeeText(string p0)
+{
+    throw new PendingStepException();
+}
+
+[When("I switch to the child frame")]
+public void WhenISwitchToTheChildFrame()
+{
+    throw new PendingStepException();
+}
+
+[Then("I switch back to the main page")]
+public void ThenISwitchBackToTheMainPage()
+{
+    throw new PendingStepException();
+}
+
+[When("I click on {string} button")]
+public void WhenIClickOnButton(string p0)
+{
+    throw new PendingStepException();
+}
+
+[Then("The modal title should be {string}")]
+public void ThenTheModalTitleShouldBe(string p0)
+{
+    throw new PendingStepException();
+}
+
+[Then("The modal body should contain {string}")]
+public void ThenTheModalBodyShouldContain(string p0)
+{
+    throw new PendingStepException();
+}
+
+[When("I click on {string} button in the modal")]
+public void WhenIClickOnButtonInTheModal(string close)
+{
+    throw new PendingStepException();
+}
