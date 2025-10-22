@@ -15,6 +15,11 @@ on:
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
+    inputs:
+      scenario_name:
+        description: "Perform a double click option"
+        required: false
+        default: ""
 
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
@@ -57,9 +62,16 @@ jobs:
          with:
            dotnet-version: "9.0.x"
 
-
        - name: Run Tests
-         run: dotnet test --configuration Release --logger "trx;LogFileName=test_results.trx"
+         run: |
+             if [ -z "${{ github.event.inputs.scenario_name }}" ]; then
+             echo "No scenario specified. Running all tests..."
+             dotnet test --configuration Release --logger "trx;LogFileName=test_results.trx" --results-directory TestResults
+             else
+             echo "Running specific scenario: ${{ github.event.inputs.scenario_name }}"
+             dotnet test --configuration Release --filter "Name=${{ github.event.inputs.scenario_name }}" --logger "trx;LogFileName=test_results.trx" --results-directory TestResults
+             fi
+             shell: bash
 
 
        - name: Upload Test Results
@@ -68,7 +80,22 @@ jobs:
           name: TestResults
           path: TestResults/*.trx
 
+       - name: Install Allure CLI
+         run: |
+          choco install allure -y
+          allure --version
 
+       - name: Generate Allure Report
+         run: |
+             allure generate ./allure-results --clean -o ./allure-report
+              allure open ./allure-report
+
+       - name: Upload Allure Report
+         uses: actions/upload-artifact@v4
+         with:
+           name: Allure_Report
+           path: allure-report
+           
        - name: Upload Test Reports
          if: always()
          uses: actions/upload-artifact@v4
