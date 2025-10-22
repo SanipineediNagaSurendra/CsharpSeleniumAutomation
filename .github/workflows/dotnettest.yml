@@ -43,8 +43,6 @@ jobs:
 
 
   test:
-
-
     runs-on: windows-latest
     needs: build
 
@@ -61,7 +59,7 @@ jobs:
 
 
        - name: Run Tests
-         run: dotnet test --no-build --logger "trx;LogFileName=test_results.trx" --results-directory TestResults
+         run: dotnet test --no-build --logger"trx;LogFileName=test_results.trx" --results-directory TestResults
 
 
        - name: Upload Test Results
