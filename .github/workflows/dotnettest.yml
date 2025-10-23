@@ -59,39 +59,14 @@ jobs:
            dotnet-version: "9.0.x"
 
        - name: Run Tests
-         run: dotnet test --configuration Release --logger "console;verbosity=detailed" | tee TestResults.log
+         run: dotnet test --configuration Release --results-directory Allure-Results
 
 
-       - name: Upload Test Results
+       - name: Upload Allure report
          uses: actions/upload-artifact@v4
          with:
-          name: TestResults
-          path: TestResults/*.trx
-
-       - name: Install Allure CLI
-         run: |
-          choco install allure -y
-          allure --version
-
-       - name: Generate Allure Report
-         run: |
-             allure generate ./allure-results --clean -o ./allure-report
-              allure open ./allure-report
-
-       - name: Upload Allure Report
-         uses: actions/upload-artifact@v4
-         with:
-           name: Allure_Report
-           path: allure-report
-           
-       - name: Upload Test Reports
-         if: always()
-         uses: actions/upload-artifact@v4
-         with:
-          name: Selenium_ExtentReports
-          path: |
-            **/ExtentReports/**
-             TestResults.log
+           name: Allure-Results
+           path: Allure-Results
 
              
        - name: Archive build logs
