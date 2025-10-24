@@ -66,5 +66,5 @@ jobs:
         with:
           name: Selenium_ExtentReports
           path: |
-            **/ExtentReports/**
+            **/Allure-Results/**
              TestResults.log
